@@ -13,11 +13,13 @@ public class test {
 //                "com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/xyjk_app","user_id",ech);
 //        System.out.println("编号是："+a);
 
-//                String[] ech={"root:123456a:service.dev.jisuqianbao.com:2201","root:123456a:172.20.32.4:22"};
+                String[] ech={"root:123456:jump.test.ykwlkj.com:22","root:123456:172.19.98.53:22"};
 //
 //       String a= Database.database(9106,"D:\\\\xshell\\\\id_rsa_2048-private","select id from tb_loan_person where phone='15995106013'",
 //                "com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/xyjk_app","user_id",ech);
-//        String b=Getssh.get("D:\\\\\\\\xshell\\\\\\\\id_rsa_2048-private","123456a","cd /code/xyjk/app:exit",ech);
+       // GetSshReady.get("D:\\xshell\\jsqb","123456","cd /data/www/jsyq;php yii-test channel-order/handle-event;exit",ech);
+        GetSshReady g=new GetSshReady();
+        String b=g.get("D:\\xshell\\jsqb","123456","cd /data/www/jsyq;ls;php yii-test dai-chao/event-handle",ech);
 //        System.out.println("信息"+b);
 //        String res;
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -30,7 +32,7 @@ public class test {
 //        long ts = date.getTime();
 //        res = String.valueOf(ts);
 //        int a=Integer.parseInt(res)/1000;
-        int seconds = (int) (System.currentTimeMillis() / 1000);
-        System.out.println(seconds);
+//        int seconds = (int) (System.currentTimeMillis() / 1000);
+        System.out.println(b);
     }
 }

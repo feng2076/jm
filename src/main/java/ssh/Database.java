@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Database {
+	private static final Logger log = LoggerFactory.getLogger(Database.class);
 
 	public static String database(int lport, String filepath, String sql,
 			String dbclass,String dburl,String evalue, String[] sshev) {
@@ -47,9 +50,9 @@ public class Database {
 //				session.setPassword(ssh[1]);
 //				session.setConfig("StrictHostKeyChecking", "no");
 //				session.connect();
-//				System.out.println(session.getServerVersion());// 这里打印SSH服务器版本信息
+//				log.info(session.getServerVersion());// 这里打印SSH服务器版本信息
 //				assinged_port = session.setPortForwardingL(lport, db[2],Integer.parseInt(db[3]));
-//				System.out.println("localhost:" + assinged_port + " -> "+ db[2] + ":" + Integer.parseInt(db[3]));
+//				log.info("localhost:" + assinged_port + " -> "+ db[2] + ":" + Integer.parseInt(db[3]));
 				JSch jsch = new JSch();
 				jsch.addIdentity(filepath, ssh[1]);
 				int num=len;
@@ -63,12 +66,12 @@ public class Database {
 				session.setPassword(ssh[1]);
 				session.setConfig("StrictHostKeyChecking", "no");
 				session.connect();
-				System.out.println(session.getServerVersion());// 这里打印SSH服务器版本信息
+				log.info(session.getServerVersion());// 这里打印SSH服务器版本信息
 				for(int i=1;i<num;i++){
 					other=sshev[i].split(":");
 					//此处lport为0表示系统随机分配端口
 					assinged_port = session.setPortForwardingL(0,other[2], Integer.parseInt(other[3]));//再把本机和远程机端口映射
-					System.out.println("portforwarding: "+"localhost:"+assinged_port+" -> "+other[2]+":"+3306);
+					log.info("portforwarding: "+"localhost:"+assinged_port+" -> "+other[2]+":"+3306);
 				}
 			} catch (Exception e) {
 				session.disconnect();

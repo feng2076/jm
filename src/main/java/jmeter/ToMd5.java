@@ -11,7 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
-
+/* 
+ * @Description:  
+ * @Param:  
+ * @return:  
+ * @Author: xufeng 
+ * @Date: 2018/12/5 
+ */
 public class ToMd5 extends AbstractJavaSamplerClient {
     private SampleResult results;//在结果树中返回的true/false
     private static final Logger log = LoggerFactory.getLogger(ToMd5.class);

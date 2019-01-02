@@ -12,8 +12,15 @@ import org.apache.jmeter.threads.JMeterVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ssh.GetSshReady;
 import ssh.Getssh;
-
+/* 
+ * @Description:  
+ * @Param:  
+ * @return:  
+ * @Author: xufeng 
+ * @Date: 2018/12/5 
+ */
 public class ConSsh extends AbstractJavaSamplerClient {
 	
 	
@@ -40,6 +47,7 @@ public class ConSsh extends AbstractJavaSamplerClient {
         params.addArgument("command", "SSH执行脚本，如：cd /code/dev-0-app-init-jn6d56;php yii overdue-calculate/test-calculate;exit(环境变量已配置并同名可不写)");
         params.addArgument("password", "SSH连接密码(环境变量已配置并同名可不写)");
         params.addArgument("sshev", "SSH服务器配置，如：xufeng:123456:139.224.22.30:1022;test:123456:jsde-dev-app_cron_1:22(环境变量已配置并同名可不写) ");
+
         return params;
     }
     /* 
@@ -85,7 +93,8 @@ public class ConSsh extends AbstractJavaSamplerClient {
         	String text="command为空，未执行";
         	log.info("command："+command);
         	if(!command.equals("")){
-        		text=Getssh.get(filepath, password, command, sshhost);
+				GetSshReady g=new GetSshReady();
+        		text=g.get(filepath, password, command, sshhost);
         	}
         	log.info("执行脚本返回的信息为："+text);
         	results.setSuccessful(true);  
