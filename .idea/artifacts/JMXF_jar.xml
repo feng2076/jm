@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JMXF:jar">
+    <output-path>D:/tools/apache-jmeter-5.1.1/lib/ext</output-path>
+    <root id="archive" name="JMXF.jar">
+      <element id="module-output" name="JMXF" />
+    </root>
+  </artifact>
+</component>

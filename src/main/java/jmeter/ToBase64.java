@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 public class ToBase64 extends AbstractJavaSamplerClient {
     private SampleResult results;//在结果树中返回的true/false
-    private static final Logger log = LoggerFactory.getLogger(ToMd5.class);
+    private static final Logger log = LoggerFactory.getLogger(ToBase64.class);
     private String esign;
 
     public void setupTest(JavaSamplerContext jsc) {

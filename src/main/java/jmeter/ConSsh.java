@@ -11,8 +11,6 @@ import org.apache.jmeter.threads.JMeterContextService;
 import org.apache.jmeter.threads.JMeterVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ssh.GetSshReady;
 import ssh.Getssh;
 /* 
  * @Description:  
@@ -93,7 +91,7 @@ public class ConSsh extends AbstractJavaSamplerClient {
         	String text="command为空，未执行";
         	log.info("command："+command);
         	if(!command.equals("")){
-				GetSshReady g=new GetSshReady();
+				Getssh g=new Getssh();
         		text=g.get(filepath, password, command, sshhost);
         	}
         	log.info("执行脚本返回的信息为："+text);
