@@ -1,0 +1,34 @@
+syntax = "proto2";
+
+package IM.Other;
+import "IM.BaseDefine.proto";
+option java_package = "com.mogujie.tt.protobuf";
+//option java_outer_classname = "MOGUJIEIMMessage";
+option optimize_for = LITE_RUNTIME;
+
+//service id: 0x0007
+
+message IMHeartBeat{
+	//cmd id:  		0x0701
+}
+
+
+//	CID_OTHER_CAR_INFO_REQ					= 0x0750;
+//	CID_OTHER_CAR_INFO_REP					= 0x0751;
+
+message IMCarInfoReq
+{
+	required uint64 user_id = 1;				//消息发送id
+	optional bytes  user_info = 2;				//用户信息数据
+	
+	optional bytes  attach_data = 20;
+}
+
+message IMCarInfoRep
+{
+	required IM.BaseDefine.ResultType result_code 	= 1;
+	required uint64					  user_id		= 2;
+	optional bytes return_info						= 3;
+	
+	optional bytes attach_data 						= 20;
+}
