@@ -3,7 +3,6 @@ package zhaogang;
 import com.google.protobuf.ByteString;
 import com.mogujie.tt.protobuf.IMBaseDefine;
 
-import static zhaogang.MidMedth.bytes2hex;
 
 public class SendMessage {
     public static String SendMessage(int fromUserId, int toUserId, String text) {

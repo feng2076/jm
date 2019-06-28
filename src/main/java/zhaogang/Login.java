@@ -2,7 +2,6 @@ package zhaogang;
 
 import com.mogujie.tt.protobuf.IMBaseDefine;
 
-import static zhaogang.Main.bytes2hex;
 
 public class Login {
     public static String Login(int userId) {
